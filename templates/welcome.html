@@ -14,15 +14,14 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            /* background-image: url('{{ url_for('static', filename='welcome_background.jpg') }}'); */
             background-image: url('static/tmp_background.avif');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            min-height: 100vh; /* Ensure the page takes up at least the full viewport height */
+            min-height: 100vh;
             display: flex;
-            flex-direction: column; /* Align children in a column */
-            justify-content: space-between; /* Space out items */
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         /* Header styles */
@@ -65,20 +64,23 @@
         }
 
         /* Page content styles */
+        .intro {
+            color: #fff;
+            text-align: center;
+            font-size: 1.5em;
+            margin: 50px;
+        }
+
+        /* Button styles */
         .welcome-container {
             text-align: center;
-            margin-bottom: 20px; /* Add space between buttons and footer */
+            margin-bottom: 20px;
         }
 
         .button {
-            padding: 16px 32px; /* Increase padding for larger buttons */
+            padding: 16px 0;
+            width: 200px;
             font-size: 1.5em;
-        }
-
-        .welcome-container a {
-            display: inline-block; /* Display buttons inline */
-            margin: 10px; /* Add margin around buttons */
-            padding: 10px 20px;
             text-decoration: none;
             background-color: #007BFF;
             color: #fefeff;
@@ -87,17 +89,8 @@
             border-radius: 5px;
             font-weight: bold;
             transition: background-color 0.3s;
-            text-align: center;
-            margin-bottom: 20px;
-            margin: 0 auto;
-        }
-
-        .welcome-container a:first-child {
-            margin-right: 20px; /* Add margin to the right of the first button */
-        }
-
-        .welcome-container a:last-child {
-            margin-left: 20px; /* Add margin to the left of the last button */
+            display: inline-block;
+            margin: 10px;
         }
 
         .welcome-container a:hover {
@@ -110,13 +103,13 @@
             padding: 10px;
         }
 
-        .intro {
-            color: #fff; /* Set text color to white */
-            text-align: left; /* Center-align text */
-            font-size: 1.5em; /* Increase font size */
-            margin: 50px; /* Add margin at the top */
+        /* Responsive styles */
+        @media screen and (max-width: 600px) {
+            .button {
+                width: 100%; /* Set buttons to full width on smaller screens */
+                margin: 10px 0; /* Add vertical margin between buttons */
+            }
         }
-
     </style>
 </head>
 <body>
@@ -129,7 +122,6 @@
                 <li><a href="/welcome">Home</a></li>
                 <li><a href="/beginner">Beginner</a></li>
                 <li><a href="/advanced">Advanced</a></li>
-                <!-- <li><a href="/insight">Insight</a></li> -->
             </ul>
         </nav>
     </header>
