@@ -4,6 +4,20 @@ import pandas as pd
 from pymongo import MongoClient
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
+import boto3
+
+def get_mongodb_uri():
+    session = boto3.session.Session()
+    ssm_client = session.client('ssm')
+    parameter_name = '/fitnessApp/mongodb_uri'
+    
+    try:
+        response = ssm_client.get_parameter(Name=parameter_name, WithDecryption=True)
+        mongodb_uri = response['Parameter']['Value']
+        return mongodb_uri
+    except ssm_client.exceptions.ParameterNotFound:
+        print(f"Parameter {parameter_name} not found in Parameter Store.")
+        return None
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -36,7 +50,12 @@ df['images'] = df['images'].apply(lambda x: [image.strip(" '") for image in x.st
 
 # Connect to MongoDB
 # client = MongoClient("mongodb://localhost:27017/")
-mongodb_uri = os.environ.get('MONGODB_URI')
+# mongodb_uri = os.environ.get('MONGODB_URI')
+mongodb_uri = get_mongodb_uri()
+if mongodb_uri:
+    print("MongoDB URI:", mongodb_uri)
+else:
+    print("Failed to retrieve MongoDB URI.")
 client = MongoClient(mongodb_uri)
 
 db = client["exercisesdb"]
@@ -215,7 +234,6 @@ def more_recommendations():
     return render_template('more_recommendations.html', recommendations=exercise_data, user_input=user_input,
                            selectedPrimaryMuscle=selected_primary_muscle)
 
-    
 
 if __name__ == '__main__':
     app.run(debug=True)
