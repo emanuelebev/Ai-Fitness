@@ -214,5 +214,13 @@ def more_recommendations():
     # Handle the case where there's no POST data (initial page load or form submission)
     return render_template('more_recommendations.html', recommendations=exercise_data, user_input=user_input,
                            selectedPrimaryMuscle=selected_primary_muscle)
+
+    
+
 if __name__ == '__main__':
     app.run(debug=True)
+    try:
+        client.close()
+    except Exception as e:
+        print("An error occurred while closing MongoDB client:", e)
+
