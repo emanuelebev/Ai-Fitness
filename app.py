@@ -7,7 +7,7 @@ from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
 import boto3
 
 def get_mongodb_uri():
-    region_name = 'eu-north-1'
+    region_name = 'eu-west-1'
     session = boto3.Session(region_name=region_name)
     ssm_client = session.client('ssm')
     parameter_name = '/fitnessApp/mongodb_uri'
