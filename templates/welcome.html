@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Welcome</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-image: url('{{ url_for('static', filename='welcome_background.jpg') }}'); */
+            background-image: url('{{ url_for('static', filename='tmp_background.avif') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh; /* Ensure the page takes up at least the full viewport height */
+            display: flex;
+            flex-direction: column; /* Align children in a column */
+            justify-content: space-between; /* Space out items */
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 88px;
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fefeff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+
+        /* Page content styles */
+        .welcome-container {
+            text-align: center;
+            margin-bottom: 20px; /* Add space between buttons and footer */
+        }
+
+        .button {
+            padding: 16px 32px; /* Increase padding for larger buttons */
+            font-size: 1.5em;
+        }
+
+        .welcome-container a {
+            display: inline-block; /* Display buttons inline */
+            margin: 10px; /* Add margin around buttons */
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #007BFF;
+            color: #fefeff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            text-align: center;
+            margin-bottom: 20px;
+            margin: 0 auto;
+        }
+
+        .welcome-container a:first-child {
+            margin-right: 20px; /* Add margin to the right of the first button */
+        }
+
+        .welcome-container a:last-child {
+            margin-left: 20px; /* Add margin to the left of the last button */
+        }
+
+        .welcome-container a:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            color: #fefeff;
+            padding: 10px;
+        }
+
+        .intro {
+            color: #fff; /* Set text color to white */
+            text-align: left; /* Center-align text */
+            font-size: 1.5em; /* Increase font size */
+            margin: 50px; /* Add margin at the top */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/welcome"><img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/welcome">Home</a></li>
+                <li><a href="/beginner">Beginner</a></li>
+                <li><a href="/advanced">Advanced</a></li>
+                <!-- <li><a href="/insight">Insight</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    <section class="intro">
+        <h1>GYM AND FITNESS</h1>
+        <h3>PERSONALIZED HOME WORKOUT RECOMMENDATIONS SYSTEM</h3>
+        <p>Discover workouts customized just for you</p>
+        <p>Get effective exercises based on your unique profile and fitness goals.</p>
+    </section>
+    <footer>
+        <div class="welcome-container">
+            <a class="button" href="/beginner">Beginner</a>
+            <a class="button" href="/advanced">Advanced</a>
+        </div>
+        © 2024 Fitness Recommendation
+    </footer>
+</body>
+</html>
