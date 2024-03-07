@@ -53,9 +53,7 @@ df['images'] = df['images'].apply(lambda x: [image.strip(" '") for image in x.st
 # client = MongoClient("mongodb://localhost:27017/")
 # mongodb_uri = os.environ.get('MONGODB_URI')
 mongodb_uri = get_mongodb_uri()
-if mongodb_uri:
-    print("MongoDB URI:", mongodb_uri)
-else:
+if not mongodb_uri:
     print("Failed to retrieve MongoDB URI.")
 client = MongoClient(mongodb_uri)
 
