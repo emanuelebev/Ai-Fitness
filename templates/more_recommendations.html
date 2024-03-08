@@ -53,7 +53,7 @@
 
         nav ul li a {
             text-decoration: none;
-            color:  #007BFF;
+            color: #007BFF;
             font-weight: bold;
             transition: color 0.3s;
         }
@@ -75,7 +75,7 @@
 
         h3 {
             font-size: 36px;
-            color:  #007BFF;
+            color: #007BFF;
             margin-top: 40px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -98,12 +98,15 @@
         .images-section {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         /* Image style */
         .exercise-image {
-            max-width: 360px;
+            max-width: 100%; /* Adjusted for responsiveness */
+            height: auto; /* Maintain aspect ratio */
             border: 1px solid #333;
+            margin-bottom: 10px;
         }
 
         /* Instructions section */
@@ -132,6 +135,39 @@
         .user-input label {
             font-weight: bold;
         }
+
+        /* Media Queries */
+        @media only screen and (max-width: 768px) {
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .logo img {
+                width: 66px;
+                height: 38px;
+            }
+
+            nav ul li {
+                font-size: 1em;
+            }
+
+            h1 {
+                font-size: 28px;
+                margin-top: 80px;
+                margin-bottom: 30px;
+            }
+
+            h3 {
+                font-size: 28px;
+                margin-top: 30px;
+            }
+
+            .exercise-name {
+                font-size: 20px;
+            }
+        }
+
     </style>
 </head>
 

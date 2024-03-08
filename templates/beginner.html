@@ -6,232 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beginner Exercise Recommendations</title>
     <style>
-        /* Header styles */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-        }
-
-        body {
-            font-family: 'PrimaryMuscleFont', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 80px auto;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* CSS for Section */
-        .section {
-            display: flex;
-            font-size: 1.125rem;
-            flex-direction: column;
-            width: 100%;
-            max-width: 100%;
-        }
-
-        .section h2 {
-            font-size: 24px;
-            margin: 10px 0;
-        }
-
-        /* Checkbox styles */
-        label {
-            display: inline-flex;
-            align-items: center;
-            margin: 10px 0;
-        }
-
-        input[type="checkbox"],
-        input[type="radio"] {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
-
-        /* Three-column layout styles */
-        .section-three-column {
-            display: flex;
-            justify-content: space-between;
-            border: none;
-            align-content: flex-start;
-            font-size: 1.125rem;
-        }
-
-        .column {
-            margin-right: 18%;
-        }
-
-        /* Responsive layout styles */
-        @media (max-width: 768px) {
-            .section {
-                width: 100%;
-            }
-
-            .column {
-                flex-basis: calc(50% - 20px);
-            }
-        }
-
-        /* Additional styles for buttons */
-        .btn {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: .375rem;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-        }
-
-        /* CSS for Muscle Selection */
-        .muscle-selection {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: 0px;
-            box-sizing: border-box;
-            border: none;
-        }
-
-        select {
-            width: 30%;
-            padding: 5px;
-            border: 1px solid #ddd;
-            font-size: 1.125rem;
-        }
-
-        .muscle-layout {
-            display: flex;
-            justify-content: space between;
-            align-items: flex-start;
-            flex-grow: 1;
-        }
-
-        .muscle-list {
-            width: 15%;
-            text-align: center;
+        body, header, .container, .section, .muscle-selection, .section-three-column, .column, .btn, .muscle-layout, .muscle-list, .muscle-picture, .primaryMuscle, nav ul, .logo img {
             box-sizing: border-box;
         }
 
-        .muscle-list ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .muscle-list li {
-            margin-bottom: 15px;
-            margin-top: 60%;
-        }
-
-        .muscle-list a {
-            display: block;
-            text-decoration: none;
-            color: black;
-            padding: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .muscle-list a:hover {
-            background-color: #e0e0e0;
-        }
-
-        .muscle-picture {
-            width: 70%;
-            /* Adjust the width as needed */
-            box-sizing: border-box;
-        }
-
-        .muscle-picture img {
-            width: 100%;
-        }
-
-        /* CSS for Primary Muscle Buttons */
-        .primaryMuscle {
-            background: #fff;
-            backface-visibility: hidden;
-            border-radius: .375rem;
-            border-style: solid;
-            border-width: .11rem;
-            box-sizing: border-box;
-            color: #212121;
-            cursor: pointer;
-            display: inline-block;
-            font-family: Circular, Helvetica, sans-serif;
-            font-size: 1.125rem;
-            font-weight: 600;
-            letter-spacing: -.01em;
-            padding: .8rem 1rem;
-            width: 145px;
-            text-align: left;
-            text-decoration: none;
-            transform: translateZ(0) scale(1);
-            transition: transform .2s;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .primaryMuscle:not(:disabled):hover {
-            transform: scale(1.05);
-        }
-
-        .primaryMuscle:not(:disabled):hover:active {
-            transform: scale(1.05) translateY(.125rem);
-        }
-
-        .primaryMuscle:focus {
-            outline: 0 solid transparent;
-        }
-
-        .primaryMuscle:focus:before {
-            content: "";
-            left: calc(-1*.375rem);
-            pointer-events: none;
-            position: absolute;
-            top: calc(-1*.375rem);
-            transition: border-radius;
-            user-select: none;
-        }
-
-        .primaryMuscle:focus:not(:focus-visible) {
-            outline: 0 solid transparent;
-        }
-
-        .primaryMuscle:focus:not(:focus-visible):before {
-            border-width: 0;
-        }
-
-        .primaryMuscle:not(:disabled):active {
-            transform: translateY(.125rem);
-        }
-
-        /* CSS for highlighting the selected primary muscle */
-        .primaryMuscle.selected {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        /* CSS for navigation and background */
+        /* Base styles */
         body {
             font-family: 'PrimaryMuscleFont', sans-serif;
             margin: 0;
@@ -241,36 +20,97 @@
             background-attachment: fixed;
         }
 
-        .logo {
+        header {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white; /* Ensure readability */
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 100px auto 0; /* Adjust top margin to accommodate fixed header */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
 
-        .logo img {
-            width: 88px;
-            height: 50px;
+        .section, .muscle-selection, .section-three-column {
+            width: 100%;
         }
 
-        nav ul {
-            list-style: none;
+        .muscle-layout {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
-        nav ul li {
-            margin: 0 15px;
-            font-size: 1.2em;
+        .muscle-list {
+            flex: 1; /* Adjusted for responsive layout */
+            margin: 0 5%; /* Added spacing between elements */
+            text-align: center;
         }
 
-        nav ul li a {
-            text-decoration: none;
-            color:  #007BFF;
-            font-weight: bold;
-            transition: color 0.3s;
+        .muscle-picture {
+            flex: 3; /* Adjusted for responsive layout */
         }
 
-        nav ul li a:hover {
-            color: rgb(61, 229, 83);
+        .muscle-picture img {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Improved checkbox and radio button styles for better usability on touch devices */
+        input[type="checkbox"], input[type="radio"] {
+            width: 24px; /* Increased size for easier interaction */
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul {
+                justify-content: center;
+                padding: 0;
+            }
+
+            nav ul li {
+                margin: 5px; /* Reduced margin for smaller screens */
+            }
+
+            .section-three-column, .muscle-layout {
+                flex-direction: column;
+            }
+
+            .muscle-list, .muscle-picture, .column {
+                margin: 10px 0; /* Adjusted margin for vertical layout */
+            }
+
+            .muscle-list ul li, .column {
+                width: 100%; /* Full width for better usability */
+            }
+
+            select {
+                width: 100%; /* Full width for better usability */
+            }
+        }
+
+        /* Additional responsive adjustments for very small screens */
+        @media (max-width: 480px) {
+            .container {
+                margin-top: 120px; /* Increase top margin for stacked header */
+            }
         }
     </style>
 </head>
@@ -410,6 +250,5 @@
 
 
 </body>
-
 
 </html>
