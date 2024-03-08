@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beginner Exercise Recommendations</title>
     <style>
-        body, header, .container, .section, .muscle-selection, .section-three-column, .column, .btn, .muscle-layout, .muscle-list, .muscle-picture, .primaryMuscle, nav ul, .logo img {
-            box-sizing: border-box;
-        }
-
-        /* Base styles */
         body {
             font-family: 'PrimaryMuscleFont', sans-serif;
             margin: 0;
-            padding: 0;
+            padding-top: 100px; /* Leave space for fixed header */
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -27,98 +21,100 @@
             padding: 20px;
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            background-color: white; /* Ensure readability */
+            width: 100%;
+            background-color: white; /* Improve readability */
+            z-index: 1000; /* Ensure header is above all other content */
         }
 
         .container {
             max-width: 1000px;
-            margin: 100px auto 0; /* Adjust top margin to accommodate fixed header */
+            margin: auto;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .section, .muscle-selection, .section-three-column {
-            width: 100%;
-        }
-
-        .muscle-layout {
+        .section, .muscle-selection, .section-three-column, .muscle-layout, .muscle-list, .muscle-picture {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .muscle-list {
-            flex: 1; /* Adjusted for responsive layout */
-            margin: 0 5%; /* Added spacing between elements */
-            text-align: center;
-        }
-
-        .muscle-picture {
-            flex: 3; /* Adjusted for responsive layout */
-        }
-
-        .muscle-picture img {
             width: 100%;
-            height: auto; /* Maintain aspect ratio */
         }
 
-        /* Improved checkbox and radio button styles for better usability on touch devices */
+        .muscle-list, .muscle-picture, .column {
+            margin: 10px;
+            flex: 1 1 200px; /* Flex basis adjusted for smaller screens */
+        }
+
+        .muscle-picture img, .muscle-list a {
+            width: 100%;
+            height: auto;
+        }
+
         input[type="checkbox"], input[type="radio"] {
-            width: 24px; /* Increased size for easier interaction */
-            height: 24px;
-            margin-right: 10px;
+            cursor: pointer; /* Improve usability */
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: .375rem;
+            display: block; /* Easier to tap on mobile */
+            width: 100%; /* Full-width buttons on mobile */
+            box-sizing: border-box; /* Prevent layout overflow */
+            margin-top: 20px;
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul {
-                justify-content: center;
-                padding: 0;
-            }
-
-            nav ul li {
-                margin: 5px; /* Reduced margin for smaller screens */
-            }
-
-            .section-three-column, .muscle-layout {
+            .container, .section, .muscle-selection, .section-three-column {
                 flex-direction: column;
             }
 
             .muscle-list, .muscle-picture, .column {
-                margin: 10px 0; /* Adjusted margin for vertical layout */
+                flex-basis: 100%; /* Take full width on smaller screens */
+                margin: 5px 0; /* Reduce margin on smaller screens */
             }
 
-            .muscle-list ul li, .column {
-                width: 100%; /* Full width for better usability */
+            .column:last-child {
+                margin-right: 0; /* Adjust margin for the last column */
             }
 
-            select {
-                width: 100%; /* Full width for better usability */
+            header {
+                flex-direction: column; /* Stack logo and navigation on smaller screens */
+            }
+
+            nav ul {
+                margin-top: 10px;
+                padding: 0;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 5px; /* Adjust margins for nav items on smaller screens */
             }
         }
 
-        /* Additional responsive adjustments for very small screens */
-        @media (max-width: 480px) {
-            .container {
-                margin-top: 120px; /* Increase top margin for stacked header */
-            }
+        .primaryMuscle {
+            margin: 5px;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .primaryMuscle.selected {
+            background-color: #0056b3;
+            color: white;
         }
     </style>
 </head>
-
 <body>
     <header>
         <div class="logo">
-            <a href="/welcome"><img src="{{ url_for('static', filename='logo_user.jpg') }}" alt="Logo"></a>
+            <a href="/welcome"><img src="logo_user.jpg" alt="Logo"></a>
         </div>
         <nav>
             <ul>
@@ -129,7 +125,7 @@
         </nav>
     </header>
     <div class="container">
-        <h1>Select Your Target Muscle And Equipment</h1>
+         <h1>Select Your Target Muscle And Equipment</h1>
         <form method="POST" action="/beginner">
             <input type="hidden" name="selectedPrimaryMuscle" id="selectedPrimaryMuscle"
                 value="{{ selectedPrimaryMuscle }}">
@@ -214,41 +210,28 @@
         </form>
     </div>
     <script>
+        // JavaScript functionality as provided
         // Update selectPrimaryMuscle function
         function selectPrimaryMuscle(muscle) {
-            selectedPrimaryMuscle = muscle;
+            let selectedPrimaryMuscle = muscle;
             document.querySelector("#selectedPrimaryMuscle").value = muscle;
-            // Store the selected primary muscle in a cookie or local storage
-            document.cookie = `selectedPrimaryMuscle=${selectedPrimaryMuscle};path=/`; // Store in a cookie
+            // Store the selected primary muscle in a cookie
+            document.cookie = `selectedPrimaryMuscle=${selectedPrimaryMuscle};path=/`;
             // Highlight the selected primary muscle
-            var muscles = document.querySelectorAll('.primaryMuscle');
+            let muscles = document.querySelectorAll('.primaryMuscle');
             muscles.forEach(function (elem) {
                 elem.classList.remove('selected');
             });
             document.querySelector(`.primaryMuscle[data-muscle="${selectedPrimaryMuscle}"]`).classList.add('selected');
-
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.addEventListener('click', () => {
-                    section.classList.toggle('zoomed');
-                });
-            });
         }
 
-        // Function to clear the selected primary muscle
         function clearSelectedPrimaryMuscle() {
-            selectedPrimaryMuscle = null;
             document.querySelector("#selectedPrimaryMuscle").value = "";
-
-            // Remove the 'selected' class from all primary muscles
-            var muscles = document.querySelectorAll('.primaryMuscle');
+            let muscles = document.querySelectorAll('.primaryMuscle');
             muscles.forEach(function (elem) {
                 elem.classList.remove('selected');
             });
         }
     </script>
-
-
 </body>
-
 </html>
