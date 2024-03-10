@@ -1,5 +1,5 @@
 import json, os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 import pandas as pd
 from pymongo import MongoClient
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -232,6 +232,10 @@ def more_recommendations():
     # Handle the case where there's no POST data (initial page load or form submission)
     return render_template('more_recommendations.html', recommendations=exercise_data, user_input=user_input,
                            selectedPrimaryMuscle=selected_primary_muscle)
+
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return send_from_directory(app.static_folder, filename)
 
 
 if __name__ == '__main__':
