@@ -235,7 +235,7 @@ def more_recommendations():
 
 @app.route('/static/<path:filename>')
 def serve_static(filename):
-    return send_from_directory(app.static_folder, filename)
+    return send_from_directory('static', filename)
 
 
 if __name__ == '__main__':
