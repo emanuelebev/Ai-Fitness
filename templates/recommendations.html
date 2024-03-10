@@ -19,8 +19,9 @@
             padding: 20px;
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
+            width: 100%;
+            background-color: white; /* Improve readability */
+            z-index: 1000; /* Ensure header is above all other content */
         }
 
         .container {
@@ -41,25 +42,29 @@
         }
 
         nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: flex-end;
+            list-style-type: none;
+            padding: 0;
+            margin: 0 50px; /* Adjust margin to move buttons slightly to the left */
         }
 
         nav ul li {
-            margin: 0 15px;
-            font-size: 1.2em;
+            display: inline;
+            margin-right: 5px; /* Add margin-right to each button */
         }
 
-        nav ul li a {
+        .nav ul li a {
             text-decoration: none;
             color: #007BFF;
-            font-weight: bold;
-            transition: color 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #007BFF;
+            margin-right: 10px; /* Ensure some space between buttons */
+            white-space: nowrap; /* Prevent text from wrapping */
         }
 
         nav ul li a:hover {
-            color: rgb(61, 229, 83);
+            background-color: #007BFF;
+            color: #fff;
         }
 
         h1 {
@@ -68,7 +73,6 @@
             color: #176b24;
             margin-top: 120px;
             margin-bottom: 50px;
-            text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: bold;
         }
@@ -138,18 +142,16 @@
 
         /* Additional styles for buttons */
         .btn {
+            text-decoration: none; /* Remove underline */
             background-color: #007BFF;
             color: #fff;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
             border-radius: .375rem;
-            margin-left: 40px;
+            width: 100%; /* Full-width buttons */
+            box-sizing: border-box; /* Prevent layout overflow */
             margin-top: 20px;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
         }
 
         /* Media Queries */
@@ -198,9 +200,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/welcome">Home</a></li>
-                <li><a href="/beginner">Beginner</a></li>
-                <li><a href="/advanced">Advanced</a></li>
+                <li><a href="/welcome" class="btn">Home</a></li>
+                <li><a href="/beginner" class="btn">Beginner</a></li>
+                <li><a href="/advanced" class="btn">Advanced</a></li>
             </ul>
         </nav>
     </header>
