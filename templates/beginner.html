@@ -35,21 +35,96 @@
             align-items: center;
         }
 
-        .section, .muscle-selection, .section-three-column, .muscle-layout, .muscle-list, .muscle-picture {
+        .section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px; /* This adds space between the grid items */
+            padding: 20px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .section-three-column {
+            width: 100%;
+            display: flex;
+            justify-content: space-around; /* Evenly spaces out the columns */
+            flex-wrap: wrap; /* Allows columns to wrap when space is limited */
+        }
+
+        .column label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 10px; /* This adds space between the radio button and the label text */
+        }
+
+        .column label {
+            display: flex;
+            align-items: center; /* Aligns the radio button and label text */
+            margin: 5px 30px; /* Adds a margin above and below each label */
+        }
+
+        input[type="radio"] {
+            accent-color: #007BFF; /* This changes the color of the radio button */
+            cursor: pointer;
+        }
+
+        input[type="radio"]:hover {
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* This adds a shadow to the radio button on hover for better visibility */
+        }
+
+        /* Style the label text when the corresponding radio button is checked */
+        input[type="radio"]:checked + label {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .muscle-selection {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             width: 100%;
         }
 
-        .muscle-list, .muscle-picture, .column {
-            margin: 10px;
-            flex: 1 1 200px; /* Flex basis adjusted for smaller screens */
+        .muscle-layout {
+            display: flex;
+            justify-content: center; /* Center the layout */
+            align-items: center;
         }
 
-        .muscle-picture img, .muscle-list a {
-            width: 100%;
+        .muscle-list {
+            margin: 0 20px; /* Add some space on the left and right of the list */
+        }
+
+        .muscle-list ul {
+            padding: 0;
+        }
+
+        .muscle-list li {
+            list-style: none;
+            margin: 5rem 0; /* Increase space between buttons */
+        }
+
+        .muscle-picture img {
+            width: 100%; /* Decrease the width of the image */
             height: auto;
+        }
+
+        .primaryMuscle {
+            font-size: 1.1rem; /* Increase font size */
+            padding: 10px 15px; /* Increase padding to make buttons bigger */
+            margin: 0.5rem; /* Adjust margin as necessary */
+            width: auto; /* Set width to auto to size buttons according to text */
+            min-width: 120px; 
+            box-sizing: border-box; /* Adjust box-sizing as necessary */
+            border: 2px solid #007BFF; /* Make border thicker if needed */
+            background-color: transparent; /* Adjust background color as necessary */
+            cursor: pointer;
+        }
+
+        .primaryMuscle:hover {
+            background-color: #007BFF; /* Change background color on hover */
+            color: #fff; /* Change text color on hover */
         }
 
         input[type="checkbox"], input[type="radio"] {
@@ -63,11 +138,39 @@
             border: none;
             cursor: pointer;
             border-radius: .375rem;
-            display: block; /* Easier to tap on mobile */
-            width: 100%; /* Full-width buttons on mobile */
+            width: 100%; /* Full-width buttons */
             box-sizing: border-box; /* Prevent layout overflow */
             margin-top: 20px;
         }
+
+        /* Navigation buttons styling */
+        /* Add margin-right to the navigation list */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 50px; /* Adjust margin to move buttons slightly to the left */
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 5px; /* Add margin-right to each button */
+        }
+
+        .nav ul li a {
+            text-decoration: none;
+            color: #007BFF;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #007BFF;
+            margin-right: 10px; /* Ensure some space between buttons */
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+
+        nav ul li a:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -88,6 +191,11 @@
                 flex-direction: column; /* Stack logo and navigation on smaller screens */
             }
 
+            .logo img {
+                width: 88px;
+                height: 50px;
+            }
+
             nav ul {
                 margin-top: 10px;
                 padding: 0;
@@ -99,6 +207,33 @@
             }
         }
 
+        @media only screen and (max-width: 390px) {
+            .container {
+                padding-top: 10rem;
+            }
+
+            header nav {
+                max-height: calc(100vh - 100px); /* Adjust 100px as needed for other elements */
+                overflow-y: auto;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                padding: 10px 0; /* Add padding to the top and bottom of the list */
+            }
+
+            header nav ul li {
+                display: block;
+                margin-bottom: 30px; /* Keep margin reasonable */
+            }
+
+            header nav ul li a {
+                width: auto;
+            }
+        }
+
+
+        
         .primaryMuscle {
             margin: 5px;
             flex-grow: 1;
@@ -114,13 +249,13 @@
 <body>
     <header>
         <div class="logo">
-            <a href="/welcome"><img src="logo_user.jpg" alt="Logo"></a>
+            <a href="/welcome"><img src="{{ url_for('static', filename='logo_user.jpg') }}" alt="Logo" style="width: 80px; height: auto;"></a>
         </div>
         <nav>
             <ul>
-                <li><a href="/welcome">Home</a></li>
-                <li><a href="/beginner">Beginner</a></li>
-                <li><a href="/advanced">Advanced</a></li>
+                <li><a href="/welcome" class="btn">Home</a></li>
+                <li><a href="/beginner" class="btn">Beginner</a></li>
+                <li><a href="/advanced" class="btn">Advanced</a></li>
             </ul>
         </nav>
     </header>
@@ -134,14 +269,14 @@
                 <!-- Content for selecting primary muscles -->
                 <div class="muscle-layout">
                     <div class="muscle-list">
+                        <!-- Muscle buttons on the left -->
                         <ul>
-                            <!-- Loop through primary muscles -->
+                            <!-- Loop through the first four primary muscles -->
                             {% for muscle in primary_muscles[:4] %}
                             <li>
-                                <button
-                                    class="primaryMuscle{% if muscle == selectedPrimaryMuscle %} selected{% endif %}"
-                                    type="button" data-muscle="{{ muscle }}"
-                                    onclick="selectPrimaryMuscle('{{ muscle }}')">
+                                <button class="primaryMuscle{% if muscle == selectedPrimaryMuscle %} selected{% endif %}"
+                                        type="button" data-muscle="{{ muscle }}"
+                                        onclick="selectPrimaryMuscle('{{ muscle }}')">
                                     {{ muscle }}
                                 </button>
                             </li>
@@ -149,25 +284,25 @@
                         </ul>
                     </div>
                     <div class="muscle-picture">
-                        <img src="{{ url_for('static', filename='beginner.jpg') }}"
-                            alt="Human Body Picture">
+                        <!-- Muscle image in the center -->
+                        <img src="{{ url_for('static', filename='beginner.jpg') }}" alt="Human Body Picture">
                     </div>
                     <div class="muscle-list">
+                        <!-- Muscle buttons on the right -->
                         <ul>
-                            <!-- Loop through primary muscles -->
+                            <!-- Loop through the next four primary muscles -->
                             {% for muscle in primary_muscles[4:] %}
                             <li>
-                                <button
-                                    class="primaryMuscle{% if muscle == selectedPrimaryMuscle %} selected{% endif %}"
-                                    type="button" data-muscle="{{ muscle }}"
-                                    onclick="selectPrimaryMuscle('{{ muscle }}')">
+                                <button class="primaryMuscle{% if muscle == selectedPrimaryMuscle %} selected{% endif %}"
+                                        type="button" data-muscle="{{ muscle }}"
+                                        onclick="selectPrimaryMuscle('{{ muscle }}')">
                                     {{ muscle }}
                                 </button>
                             </li>
                             {% endfor %}
                         </ul>
                     </div>
-                </div>
+                </div>                
             </div>
         </form>
 
