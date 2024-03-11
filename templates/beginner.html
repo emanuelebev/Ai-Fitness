@@ -192,29 +192,50 @@
         }
 
         @media only screen and (max-width: 390px) {
-            .container {
-                padding-top: 10rem;
+            .logo {
+                margin-right: auto;
             }
 
-            header nav ul {
-                flex-direction: column;
-                padding: 10px 0;
+            .logo img {
+                width: 80px;
+                height: auto;
             }
 
-            header nav ul li {
-                display: block;
-                margin-bottom: 30px;
+            nav ul {
+                list-style-type: none;
+                padding: 8px 0; 
+                margin: 10px 0; 
+                display: flex;
+            }
+
+            nav ul li {
+                margin-right: 5px;
             }
 
             nav ul li a {
-                padding: 10px 20px;
-                height: 40px;
-                display: flex;
-                align-items: center;
+                text-decoration: none;
+                color: #007BFF;
+                padding: 16px 0; 
+                border-radius: 5px;
+                border: 1px solid #007BFF;
+                margin-right: 10px;
+                white-space: nowrap;
+                font-size: 16px;
+                flex: 1; 
+                text-align: center; 
             }
 
             .btn {
-                width: calc(100% - 5rem);
+                text-decoration: none;
+                background-color: #007BFF;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                border-radius: .375rem;
+                width: 100%;
+                box-sizing: border-box;
+                margin-top: 20px;
             }
         }
 
