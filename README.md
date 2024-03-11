@@ -1,140 +1,63 @@
-# TailoredFit: Personalized Home Workout Recommendations
 
-## Abstract
+<div align="center">
+  <a href="https://github.com/emanuelebev/Ai-Fitness">
+    <img src="img/marketplace.png" alt="Logo" width="200" height="150">
+  </a>
 
-The "TailoredFit: Personalized Home Workout Recommendations" project is a Python-based web application addressing the increasing demand for personalized home-based fitness solutions. In a world where flexibility and convenience are paramount in fitness routines, this project leverages predictive models to provide tailored exercise recommendations, ensuring effective and enjoyable fitness journeys for users. The project aims to create a user-friendly platform, customize recommendations based on individual goals and available equipment, and tackle challenges users face in maintaining home-based fitness routines.
+<h3 align="center">Fitness Exercise Recommender</h3>
 
-## Objectives
+  <p align="center">
+    
+  </p>
+</div>
 
-- Analyze exercise datasets, user needs, and habits to provide valuable insights and information.
-- Make correct and appropriate exercise recommendations based on customer needs.
-- Create a user-friendly web application that recommends personalized home workouts.
-- Emphasize the importance of tailored exercise suggestions to users based on their goals and equipment.
+## Overview
+The Fitness Exercise Recommender is a web application designed to help users find exercise recommendations based on their preferences such as primary muscles targeted, fitness level, and equipment available. It utilizes a Flask backend with HTML, JavaScript, and CSS for the frontend, and MongoDB for storing exercise data. Recommendations are powered by a TF-IDF vectorizer and cosine similarity for personalized exercise suggestions. The app is hosted on an AWS EC2 instance, with an IAM role for secure access, and a custom domain configured with DNS to point to the EC2 machine.
 
-## Literature Review
+## Features
+* User-friendly interface to select fitness preferences.
+* Personalized exercise recommendations based on user input.
+* Detailed instructions and images for each exercise.
+* Hosted on AWS for reliable access.
 
-### Current Trends in the Fitness Industry
-The fitness industry is witnessing a shift towards home-based workouts, driven by factors such as convenience and changing lifestyles.
+## Installation
+**Prerequisites**
+* Python 3.6+
+* pip
+* MongoDB
 
-### Existing Fitness Recommendation Systems
-Previous research highlights various fitness recommendation systems, but many lack personalization and fail to adapt to individual goals and equipment availability.
+## Setup
+* Clone the repository to your local machine or EC2 instance.
+* Install required Python packages:
+```
+pip install -r requirements.txt
+```
+* Ensure MongoDB is running and accessible. If you're using MongoDB Atlas or another cloud provider, obtain the URI and store it in AWS SSM Parameter Store under the specified name (/fitnessApp/mongodb_uri).
+* Adjust the .env file or set environment variables accordingly to match your MongoDB URI, AWS region, and any other configurations.
 
-### User Preferences and Challenges in Home Fitness
-Users express a strong desire for fitness solutions aligned with their specific goals and resources, addressing challenges like exercise boredom and lack of motivation.
+## Running the App
+To start the app, navigate to the app directory and run:
+```
+flask run
+```
+If deployed on an EC2 instance, ensure the security group settings allow inbound HTTP or HTTPS traffic.
 
-### Machine Learning and Predictive Modeling in Fitness
-Studies showcase the potential of machine learning and predictive modeling in improving fitness recommendation systems, providing more accurate and personalized exercise suggestions.
+## Usage
+Navigate to the app's URL (local or deployed) in a web browser. You'll be presented with options to choose your fitness level (beginner or advanced) and preferences such as primary muscles to target and equipment. After submitting your preferences, the app will recommend exercises matching your criteria.
 
-## Knowledge Gaps and Limitations
+## Contributing
+Contributions are welcome! If you'd like to improve the Fitness Exercise Recommender, please follow these steps:
 
-- Personalization Deficiency: Current systems offer generic workouts, limiting effectiveness.
-- Scarcity of Home-Based Solutions: Effective and personalized home-based workout solutions are lacking.
-- User Engagement and Adherence: Maintaining consistent workout routines remains a challenge.
-- Data-Driven Approaches: The full potential of machine learning in the fitness industry needs further exploration.
+* Fork the repository.
+* Create a new branch (git checkout -b feature/AmazingFeature).
+* Make your changes.
+* Commit your changes (git commit -m 'Add some AmazingFeature').
+* Push to the branch (git push origin feature/AmazingFeature).
+* Open a pull request.
 
-## Hypotheses
+## Acknowledgments
+* MongoDB for database services.
+* AWS for cloud hosting and services.
+* Flask for the backend framework.
+* Pandas and Scikit-learn for data processing and recommendations.
 
-1. Personalized exercise recommendations enhance user engagement and adherence.
-2. Predictive models can accurately suggest exercises based on user input.
-3. The convenience of home workouts with minimal equipment attracts a broader audience.
-
-## Potential Benefits
-
-- Improved user fitness and well-being.
-- Increased user satisfaction and retention on the platform.
-- Ability to tailor workouts to individual fitness levels and goals.
-- Increased accessibility to fitness for a wide range of users.
-
-## Proposed Research Project
-
-### Research Design, Objectives, and Methodology
-
-- Utilize a mixed-methods approach for qualitative and quantitative data analysis.
-- Develop a user-friendly web application.
-- Implement Content-Based Filtering and Collaborative Filtering for exercise recommendations.
-- Analyze exercise datasets to extract valuable insights.
-
-### Data Collection Methods
-
-- Exercise data from a JSON file and user-specific data collected from user input within the application.
-
-### Technologies Used
-
-- Operating System: Windows
-- Programming Language: Python
-- Database: MongoDB
-- Data Processing: Python libraries for data manipulation and analysis
-- Recommendation System: Content-Based Filtering and Collaborative Filtering methods
-- Web Framework: Flask (Backend), HTML/CSS/JavaScript (Frontend)
-
-### Expected Results
-
-- A functional web application with a user-friendly interface.
-- Accurate exercise recommendations based on user input and equipment constraints.
-- Improved user engagement and satisfaction.
-
-## Project Implementation
-
-### Overview
-
-The TailoredFit application seamlessly bridges fitness goals and home resources using Python, Flask, and predictive models. The data analysis phase provides insights into exercise mechanics, equipment types, and user preferences.
-
-### MongoDB Integration
-
-MongoDB integration enables efficient storage and retrieval of exercise data, ensuring a dynamic backend for the application.
-
-### Flask Application
-
-The Flask application offers user-centric routes, enabling users to select their fitness level, primary muscle group, and receive personalized exercise recommendations. The recommendation system prioritizes user input, utilizes TF-IDF vectorization, and calculates cosine similarity for accurate suggestions.
-
-### User Persistence with Cookies
-
-Cookies are used for user persistence, storing information like the selected primary muscle for a consistent and personalized experience.
-
-## Lesson Learned and Future Work
-
-### Technical Proficiency
-
-The project enhanced technical proficiency in MongoDB integration, Flask application development, and data analysis techniques.
-
-### Data Analysis Insights
-
-Insights gained from data analysis include preprocessing techniques, Pandas functionalities, and the application of machine learning libraries.
-
-### Scrum Board Project Management
-
-Managing the project using a Scrum board required an agile approach, adapting to challenges and prioritizing tasks based on dependencies.
-
-## Concluding Remarks
-
-### Achievements and Acknowledgments
-
-The successful integration of MongoDB and development of the interactive Flask application mark significant achievements, acknowledging the fusion of theoretical knowledge and practical application.
-
-### Future Prospects
-
-Future work could involve enhancing recommendation algorithms, incorporating user feedback mechanisms, and expanding the exercise database.
-
-### Personal Growth
-
-The project fostered personal growth in navigating challenges, effective collaboration, and delivering tangible solutions.
-
-In conclusion, TailoredFit signifies a journey of learning, collaboration, and innovation, providing a valuable solution for personalized home workouts.
-
-## Appendix
-
-### Appendix A: Installation Guide
-
-- Clone the repository, install dependencies, and set up MongoDB to access the application.
-
-### Appendix B: User Guide
-
-- Welcome to TailoredFit! Follow steps to explore personalized exercise recommendations.
-
-### Appendix D: System Architecture
-
-- Components include Flask, MongoDB, Python libraries, and a recommendation engine.
-
-### Appendix E: Code Explanation
-
-- Brief explanation of key components, including data processing, TF-IDF vectorization, and user interaction in TailoredFit.
