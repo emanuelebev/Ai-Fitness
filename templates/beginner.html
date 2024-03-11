@@ -8,7 +8,7 @@
         body {
             font-family: 'PrimaryMuscleFont', sans-serif;
             margin: 0;
-            padding-top: 100px; /* Leave space for fixed header */
+            padding-top: 100px;
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -22,8 +22,8 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: white; /* Improve readability */
-            z-index: 1000; /* Ensure header is above all other content */
+            background-color: white;
+            z-index: 1000;
         }
 
         .container {
@@ -38,7 +38,7 @@
         .section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px; /* This adds space between the grid items */
+            gap: 15px;
             padding: 20px;
             align-items: center;
             justify-items: center;
@@ -47,33 +47,30 @@
         .section-three-column {
             width: 100%;
             display: flex;
-            justify-content: space-around; /* Evenly spaces out the columns */
-            flex-wrap: wrap; /* Allows columns to wrap when space is limited */
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
 
         .column label {
             display: flex;
             align-items: center;
             cursor: pointer;
-            gap: 10px; /* This adds space between the radio button and the label text */
+            gap: 10px;
         }
 
         .column label {
-            display: flex;
-            align-items: center; /* Aligns the radio button and label text */
-            margin: 5px 30px; /* Adds a margin above and below each label */
+            margin: 5px 30px;
         }
 
         input[type="radio"] {
-            accent-color: #007BFF; /* This changes the color of the radio button */
+            accent-color: #007BFF;
             cursor: pointer;
         }
 
         input[type="radio"]:hover {
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* This adds a shadow to the radio button on hover for better visibility */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
         }
 
-        /* Style the label text when the corresponding radio button is checked */
         input[type="radio"]:checked + label {
             font-weight: bold;
             color: #007BFF;
@@ -88,12 +85,12 @@
 
         .muscle-layout {
             display: flex;
-            justify-content: center; /* Center the layout */
+            justify-content: center;
             align-items: center;
         }
 
         .muscle-list {
-            margin: 0 20px; /* Add some space on the left and right of the list */
+            margin: 0 20px;
         }
 
         .muscle-list ul {
@@ -102,69 +99,67 @@
 
         .muscle-list li {
             list-style: none;
-            margin: 5rem 0; /* Increase space between buttons */
+            margin: 5rem 0;
         }
 
         .muscle-picture img {
-            width: 100%; /* Decrease the width of the image */
+            width: 100%;
             height: auto;
         }
 
         .primaryMuscle {
-            font-size: 1.1rem; /* Increase font size */
-            padding: 10px 15px; /* Increase padding to make buttons bigger */
-            margin: 0.5rem; /* Adjust margin as necessary */
-            width: auto; /* Set width to auto to size buttons according to text */
-            min-width: 120px; 
-            box-sizing: border-box; /* Adjust box-sizing as necessary */
-            border: 2px solid #007BFF; /* Make border thicker if needed */
-            background-color: transparent; /* Adjust background color as necessary */
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            margin: 0.5rem;
+            width: auto;
+            min-width: 120px;
+            box-sizing: border-box;
+            border: 2px solid #007BFF;
+            background-color: transparent;
             cursor: pointer;
         }
 
         .primaryMuscle:hover {
-            background-color: #007BFF; /* Change background color on hover */
-            color: #fff; /* Change text color on hover */
+            background-color: #007BFF;
+            color: #fff;
         }
 
         input[type="checkbox"], input[type="radio"] {
-            cursor: pointer; /* Improve usability */
+            cursor: pointer;
         }
 
         .btn {
-            text-decoration: none; /* Remove underline */
+            text-decoration: none;
             background-color: #007BFF;
             color: #fff;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
             border-radius: .375rem;
-            width: 100%; /* Full-width buttons */
-            box-sizing: border-box; /* Prevent layout overflow */
+            width: 100%;
+            box-sizing: border-box;
             margin-top: 20px;
         }
 
-        /* Navigation buttons styling */
-        /* Add margin-right to the navigation list */
         nav ul {
             list-style-type: none;
             padding: 0;
-            margin: 0 50px; /* Adjust margin to move buttons slightly to the left */
+            margin: 0 50px;
         }
 
         nav ul li {
             display: inline;
-            margin-right: 5px; /* Add margin-right to each button */
+            margin-right: 5px;
         }
 
-        .nav ul li a {
+        nav ul li a {
             text-decoration: none;
             color: #007BFF;
             padding: 10px 15px;
             border-radius: 5px;
             border: 1px solid #007BFF;
-            margin-right: 10px; /* Ensure some space between buttons */
-            white-space: nowrap; /* Prevent text from wrapping */
+            margin-right: 10px;
+            white-space: nowrap;
         }
 
         nav ul li a:hover {
@@ -172,39 +167,27 @@
             color: #fff;
         }
 
-
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .container, .section, .muscle-selection, .section-three-column {
                 flex-direction: column;
             }
 
             .muscle-list, .muscle-picture, .column {
-                flex-basis: 100%; /* Take full width on smaller screens */
-                margin: 5px 0; /* Reduce margin on smaller screens */
-            }
-
-            .column:last-child {
-                margin-right: 0; /* Adjust margin for the last column */
+                flex-basis: 100%;
+                margin: 5px 0;
             }
 
             header {
-                flex-direction: column; /* Stack logo and navigation on smaller screens */
-            }
-
-            .logo img {
-                width: 88px;
-                height: 50px;
+                flex-direction: column;
             }
 
             nav ul {
                 margin-top: 10px;
-                padding: 0;
                 justify-content: center;
             }
 
             nav ul li {
-                margin: 0 5px
+                margin: 0 5px;
             }
         }
 
@@ -213,85 +196,28 @@
                 padding-top: 10rem;
             }
 
-            header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px;
-                position: fixed;
-                top: 0;
-                width: 100%;
-                background-color: white; /* Improve readability */
-                z-index: 1000; /* Ensure header is above all other content */
-            }
-
-            header nav {
-                max-height: calc(100vh - 100px); /* Adjust 100px as needed for other elements */
-                overflow-y: auto;
-            }
-
             header nav ul {
                 flex-direction: column;
-                padding: 10px 0; /* Add padding to the top and bottom of the list */
+                padding: 10px 0;
             }
 
             header nav ul li {
                 display: block;
-                margin-bottom: 30px; /* Keep margin reasonable */
+                margin-bottom: 30px;
             }
 
-            header nav ul li a {
-                width: auto;
-            }
-            .logo {
-                margin-right: auto; /* Spinge il logo verso sinistra */
-            }
-
-            nav {
+            nav ul li a {
+                padding: 10px 20px;
+                height: 40px;
                 display: flex;
-                align-items: center; /* Allinea verticalmente i pulsanti */
-            }
-
-            nav ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-                display: flex;
-            }
-
-            nav ul li {
-                margin-right: 10px;
-            }
-            
-            .nav ul li a {
-                text-decoration: none;
-                color: #007BFF;
-                padding: 10px 20px; /* Modifica la larghezza dei pulsanti se necessario */
-                border-radius: 5px;
-                border: 1px solid #007BFF;
-                margin-left: 10px; /* Aggiungi spazio tra i pulsanti */
-                white-space: nowrap; /* Impedisce il testo di andare a capo */
-                height: 40px; /* Imposta un'altezza fissa per tutti i pulsanti */
-                display: flex; /* Per allineare il testo verticalmente al centro */
-                align-items: center; /* Allinea il testo verticalmente al centro */
+                align-items: center;
             }
 
             .btn {
-                text-decoration: none; /* Remove underline */
-                background-color: #007BFF;
-                color: #fff;
-                padding: 10px 20px;
-                border: none;
-                cursor: pointer;
-                border-radius: .375rem;
-                width: calc(100% - 5rem); /* Imposta la larghezza automaticamente per adattarsi al contenuto */
-                box-sizing: border-box; /* Prevent layout overflow */
-                margin-top: 20px;
+                width: calc(100% - 5rem);
             }
         }
 
-
-        
         .primaryMuscle {
             margin: 5px;
             flex-grow: 1;
@@ -318,18 +244,14 @@
         </nav>
     </header>
     <div class="container">
-         <h1>Select Your Target Muscle And Equipment</h1>
+        <h1>Select Your Target Muscle And Equipment</h1>
         <form method="POST" action="/beginner">
-            <input type="hidden" name="selectedPrimaryMuscle" id="selectedPrimaryMuscle"
-                value="{{ selectedPrimaryMuscle }}">
+            <input type="hidden" name="selectedPrimaryMuscle" id="selectedPrimaryMuscle" value="{{ selectedPrimaryMuscle }}">
             <input type="hidden" name="pageSource" value="beginner">
             <div class="muscle-selection">
-                <!-- Content for selecting primary muscles -->
                 <div class="muscle-layout">
                     <div class="muscle-list">
-                        <!-- Muscle buttons on the left -->
                         <ul>
-                            <!-- Loop through the first four primary muscles -->
                             {% for muscle in primary_muscles[:4] %}
                             <li>
                                 <button class="primaryMuscle{% if muscle == selectedPrimaryMuscle %} selected{% endif %}"
@@ -342,13 +264,10 @@
                         </ul>
                     </div>
                     <div class="muscle-picture">
-                        <!-- Muscle image in the center -->
                         <img src="{{ url_for('static', filename='Beginner.jpg') }}" alt="Human Body Picture">
                     </div>
                     <div class="muscle-list">
-                        <!-- Muscle buttons on the right -->
                         <ul>
-                            <!-- Loop through the next four primary muscles -->
                             {% for muscle in primary_muscles[4:] %}
                             <li>
                                 <button class="primaryMuscle{% if muscle == selectedPrimaryMuscle %} selected{% endif %}"
@@ -365,7 +284,6 @@
         </form>
 
         <form method="POST" action="/recommend">
-            <!-- Equipment Options -->
             <h2>Select the equipment</h2>
             <div class="section">
                 <input type="hidden" name="selectedEquipment" value="{{ selectedEquipment }}">
@@ -403,14 +321,10 @@
         </form>
     </div>
     <script>
-        // JavaScript functionality as provided
-        // Update selectPrimaryMuscle function
         function selectPrimaryMuscle(muscle) {
             let selectedPrimaryMuscle = muscle;
             document.querySelector("#selectedPrimaryMuscle").value = muscle;
-            // Store the selected primary muscle in a cookie
             document.cookie = `selectedPrimaryMuscle=${selectedPrimaryMuscle};path=/`;
-            // Highlight the selected primary muscle
             let muscles = document.querySelectorAll('.primaryMuscle');
             muscles.forEach(function (elem) {
                 elem.classList.remove('selected');
