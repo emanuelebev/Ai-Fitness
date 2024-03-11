@@ -40,7 +40,7 @@ pip install -r requirements.txt
 ## Running the App Locally
 To start the app locally, ensure MongoDB is running on your local machine. Then, navigate to the app directory and run:
 ```
-flask run
+python app.py
 ```
 
 ## Deployment on AWS EC2 with SSL
