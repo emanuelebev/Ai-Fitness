@@ -9,7 +9,11 @@
         body {
             font-family: 'PrimaryMuscleFont', sans-serif;
             margin: 0;
-            padding: 0;
+            padding-top: 100px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-image: url('static/background_alt.avif');
         }
 
         header {
@@ -20,46 +24,44 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: white; /* Improve readability */
-            z-index: 1000; /* Ensure header is above all other content */
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 80px;
         }
 
         .logo img {
-            width: 88px;
-            height: 50px;
+            width: 80px;
+            height: auto;
         }
 
         nav ul {
             list-style-type: none;
             padding: 0;
-            margin: 0 50px; /* Adjust margin to move buttons slightly to the left */
+            margin: 0 50px;
         }
 
         nav ul li {
             display: inline;
-            margin-right: 5px; /* Add margin-right to each button */
+            margin-right: 10px;
         }
 
-        .nav ul li a {
+        nav ul li a {
             text-decoration: none;
             color: #007BFF;
-            padding: 10px 15px;
+            padding: 10px 20px;
             border-radius: 5px;
             border: 1px solid #007BFF;
-            margin-right: 10px; /* Ensure some space between buttons */
-            white-space: nowrap; /* Prevent text from wrapping */
+            transition: background-color 0.3s ease;
         }
 
         nav ul li a:hover {
@@ -69,119 +71,89 @@
 
         h1 {
             text-align: center;
-            font-size: 36px;
+            font-size: 28px;
             color: #176b24;
-            margin-top: 120px;
-            margin-bottom: 50px;
-            letter-spacing: 2px;
-            font-weight: bold;
+            margin-bottom: 30px;
         }
 
         h3 {
-            font-size: 36px;
+            font-size: 24px;
             color: #007BFF;
-            margin-top: 40px;
+            margin-top: 20px;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 2px;
             font-weight: bold;
         }
 
-        /* Exercise frame */
         .exercise-frame {
-            border: 2px solid #333;
-            padding: 10px;
-            margin: 20px 0;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
         }
 
-        /* Exercise name style */
         .exercise-name {
-            font-size: 24px;
-        }
-
-        /* Images section */
-        .images-section {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap; /* Added to wrap images on smaller screens */
-        }
-
-        /* Image style */
-        .exercise-image {
-            max-width: 48%;
-            border: 1px solid #333;
-            box-sizing: border-box; /* Added to include border in max-width calculation */
-            margin-bottom: 10px; /* Added for better spacing */
-        }
-
-        /* Instructions section */
-        .instructions-section {
-            padding: 10px 0;
-        }
-
-        /* Instruction style with numbered steps */
-        .instruction {
-            counter-increment: step;
+            font-size: 20px;
             margin-bottom: 10px;
         }
 
-        .instruction::before {
-            content: counter(step);
-            margin-right: 10px;
-            font-weight: bold;
+        .images-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
 
-        /* User input section */
-        .user-input {
-            margin-top: 20px;
+        .exercise-image {
+            max-width: 48%;
+            margin-bottom: 10px;
+            border-radius: 8px;
         }
 
-        /* User input label style */
-        .user-input label {
-            font-weight: bold;
+        .instructions-section p {
+            margin-bottom: 10px;
+            line-height: 1.5;
         }
 
-        /* Additional styles for buttons */
         .btn {
-            text-decoration: none; /* Remove underline */
+            text-decoration: none;
             background-color: #007BFF;
             color: #fff;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
             border-radius: .375rem;
-            width: 100%; /* Full-width buttons */
-            box-sizing: border-box; /* Prevent layout overflow */
+            width: 100%;
+            box-sizing: border-box;
             margin-top: 20px;
+            transition: background-color 0.3s ease; /* Added transition effect */
         }
 
-        /* Media Queries */
+        .btn:hover {
+            background-color: #fff; /* Change background color on hover */
+            color: #007BFF; /* Change text color on hover */
+        }
+
+
         @media only screen and (max-width: 768px) {
             .container {
-                padding-left: 15px;
-                padding-right: 15px;
+                padding: 10px;
             }
 
             .logo img {
-                width: 66px;
-                height: 38px;
+                width: 60px;
             }
 
-            nav ul li {
-                font-size: 1em;
+            nav ul li a {
+                padding: 10px 15px;
             }
 
             h1 {
-                font-size: 28px;
-                margin-top: 80px;
-                margin-bottom: 30px;
+                font-size: 24px;
             }
 
             h3 {
-                font-size: 28px;
-                margin-top: 30px;
-            }
-
-            .exercise-name {
                 font-size: 20px;
             }
 
@@ -223,7 +195,7 @@
                 <!-- Display Instructions -->
                 <div class="instructions-section">
                     {% for instruction in exercise.instructions.split('<br>') %}
-                    <p class="instruction">{{ instruction | safe }}</p>
+                    <p>{{ instruction | safe }}</p>
                     {% endfor %}
                 </div>
             </div>
@@ -233,7 +205,6 @@
             <input type="hidden" name="user_input" value='{{ user_input | tojson | replace("'", '"') }}'>
             <button class="btn" type="submit">More Recommend Exercise</button>
         </form>
-        <br><br>
     </div>
 </body>
 

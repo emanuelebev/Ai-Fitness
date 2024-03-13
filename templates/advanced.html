@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Exercise Recommendations</title>
     <style>
-        /* General styles */
         body {
             font-family: 'PrimaryMuscleFont', sans-serif;
             margin: 0;
-            padding: 0;
+            padding-top: 100px;
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-image: url('static/background_alt.avif');
         }
 
         header {
@@ -23,116 +23,156 @@
             padding: 20px;
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            background-color: #fff;
             width: 100%;
+            background-color: white;
             z-index: 1000;
-        }
-
-        .logo img {
-            width: 88px;
-            height: 50px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: flex-end;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-            font-size: 1.2em;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: rgb(61, 229, 83);
         }
 
         .container {
             max-width: 1000px;
-            margin: 140px auto 20px;
+            margin: auto;
             padding: 20px;
-            box-sizing: border-box;
-        }
-
-        /* Muscle selection styles */
-        .muscle-layout {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .muscle-list {
-            width: 20%;
-            text-align: center;
-        }
-
-        .muscle-list li {
-            margin-bottom: 10px;
-        }
-
-        .muscle-picture {
-            width: 100%;
-            text-align: center;
-        }
-
-        .muscle-picture img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Form section styles */
         .section {
-            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            align-items: center;
+            justify-items: center;
         }
 
         .section-three-column {
+            width: 100%;
             display: flex;
+            justify-content: space-around;
             flex-wrap: wrap;
-            justify-content: space-between;
+        }
+
+        .column label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
             gap: 10px;
         }
 
-        .column {
-            width: calc(33.33% - 10px);
+        .column label {
+            margin: 5px 30px;
         }
 
-        label {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-
-        input[type="checkbox"],
         input[type="radio"] {
-            margin-right: 5px;
+            accent-color: #007BFF;
+            cursor: pointer;
         }
 
-        /* Button styles */
+        input[type="radio"]:hover {
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        input[type="radio"]:checked + label {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .muscle-selection {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .muscle-layout {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .muscle-list {
+            margin: 0 15px;
+        }
+
+        .muscle-list ul {
+            padding: 0;
+        }
+
+        .muscle-list li {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .muscle-picture img {
+            width: 100%;
+            height: auto;
+            padding-top: 2rem;
+        }
+
+        .primaryMuscle {
+            font-size: 0.8rem;
+            padding: 10px 15px;
+            margin: 0.3rem;
+            width: auto;
+            min-width: 120px;
+            box-sizing: border-box;
+            border: 2px solid #007BFF;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .primaryMuscle:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        input[type="checkbox"], input[type="radio"] {
+            cursor: pointer;
+        }
+
         .btn {
+            text-decoration: none;
             background-color: #007BFF;
             color: #fff;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
-            margin-top: 20px;
             border-radius: .375rem;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 20px;
         }
 
-        .btn:hover {
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 50px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 5px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #007BFF;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #007BFF;
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        nav ul li a:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        .primaryMuscle.selected {
             background-color: #0056b3;
+            color: white;
         }
 
         /* Responsive layout styles */
@@ -174,13 +214,13 @@
 <body>
     <header>
         <div class="logo">
-            <a href="/welcome"><img src="{{ url_for('static', filename='logo_user.jpg') }}" alt="Logo"></a>
+            <a href="/welcome"><img src="{{ url_for('static', filename='logo_user.jpg') }}" alt="Logo" style="width: 80px; height: auto;"></a>
         </div>
         <nav>
             <ul>
-                <li><a href="/welcome">Home</a></li>
-                <li><a href="/beginner">Beginner</a></li>
-                <li><a href="/advanced">Advanced</a></li>
+                <li><a href="/welcome" class="btn">Home</a></li>
+                <li><a href="/beginner" class="btn">Beginner</a></li>
+                <li><a href="/advanced" class="btn">Advanced</a></li>
             </ul>
         </nav>
     </header>
@@ -200,7 +240,7 @@
                         </ul>
                     </div>
                     <div class="muscle-picture">
-                        <img src="{{ url_for('static', filename='Advanced.jpg') }}" alt="Human Body Picture">
+                        <img src="{{ url_for('static', filename='Advanced.png') }}" alt="Human Body Picture">
                     </div>
                     <div class="muscle-list">
                         <ul>
