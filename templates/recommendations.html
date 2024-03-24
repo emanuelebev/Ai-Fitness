@@ -20,7 +20,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 25px;
             position: fixed;
             top: 0;
             width: 100%;
@@ -135,33 +135,240 @@
             color: #007BFF; /* Change text color on hover */
         }
 
+        @media (max-width: 768px) {
 
-        @media only screen and (max-width: 768px) {
-            .container {
-                padding: 10px;
+            .exercise-image{
+                justify-content: center;
+            }
+
+            nav ul {
+                list-style-type: none;
+                padding: 8px 0; 
+                margin: 10px 0; 
+                padding-right: 25px;
+                display: flex;
+            }
+
+            nav ul li {
+                margin-right: 5px;
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-right: auto;
             }
 
             .logo img {
-                width: 60px;
+                width: 80px;
+                height: auto;
+            }
+
+            nav {
+                margin: auto;
+            }
+
+            nav ul {
+                list-style-type: none;
+                padding: 8px 0; 
+                margin: 10px 0; 
+                padding-right: 25px;
+                display: flex;
+            }
+
+            nav ul li {
+                margin-right: 5px;
             }
 
             nav ul li a {
-                padding: 10px 15px;
+                text-decoration: none;
+                color: #007BFF;
+                padding: 16px 0; 
+                border-radius: 5px;
+                border: 1px solid #007BFF;
+                margin-right: 10px;
+                white-space: nowrap;
+                font-size: 16px;
+                flex: 1; 
+                text-align: center; 
             }
 
-            h1 {
-                font-size: 24px;
+            .btn {
+                text-decoration: none;
+                background-color: #007BFF;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                border-radius: .375rem;
+                width: 100%;
+                box-sizing: border-box;
+                margin-top: 20px;
             }
 
-            h3 {
-                font-size: 20px;
+            .primaryMuscle {
+                font-size: 0.65rem; /* Adjust the font size */
+                padding: 2px 4px; 
+                margin: 1px; /* Adjust margin */
+                min-width: 70px; 
+                box-sizing: border-box;
+                border: 1px solid #007BFF;
+                background-color: transparent;
+                cursor: pointer;
             }
 
-            .exercise-image {
-                max-width: 100%;
+            .primaryMuscle:hover {
+                background-color: #007BFF;
+                color: #fff;
             }
-        }
 
+            .muscle-layout {
+                position: relative;
+                width: 100%; /* Set the width to full viewport width */
+            }
+
+
+            .muscle-picture img {
+                width: 200px;
+                position: relative;
+            }
+
+            .muscle-list {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .muscle-list ul {
+                padding: 0;
+            }
+
+            .muscle-list li {
+                list-style: none;
+                margin: 0;
+            }
+
+            .primaryMuscle {
+                margin: 0.8rem;
+            }
+
+            }
+
+            @media only screen and (max-width: 390px) {
+            .logo {
+                margin-right: auto;
+            }
+
+            .logo img {
+                width: 80px;
+                height: auto;
+            }
+
+            nav {
+                margin: auto;
+            }
+
+            nav ul {
+                list-style-type: none;
+                padding: 8px 0; 
+                margin: 10px 0; 
+                padding-right: 25px;
+                display: flex;
+            }
+
+            nav ul li {
+                margin-right: 5px;
+            }
+
+            nav ul li a {
+                text-decoration: none;
+                color: #007BFF;
+                padding: 16px 0; 
+                border-radius: 5px;
+                border: 1px solid #007BFF;
+                margin-right: 10px;
+                white-space: nowrap;
+                font-size: 16px;
+                flex: 1; 
+                text-align: center; 
+            }
+
+            .btn {
+                text-decoration: none;
+                background-color: #007BFF;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                border-radius: .375rem;
+                width: 100%;
+                box-sizing: border-box;
+                margin-top: 20px;
+            }
+
+            .primaryMuscle {
+                font-size: 0.65rem; /* Adjust the font size */
+                padding: 2px 4px; 
+                margin: 1px; /* Adjust margin */
+                min-width: 70px; 
+                box-sizing: border-box;
+                border: 1px solid #007BFF;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            .primaryMuscle:hover {
+                background-color: #007BFF;
+                color: #fff;
+            }
+
+            .muscle-layout {
+                position: relative;
+                width: 100%; /* Set the width to full viewport width */
+            }
+
+
+            .muscle-picture img {
+                width: 200px;
+                position: relative;
+            }
+
+            .muscle-list {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .muscle-list ul {
+                padding: 0;
+            }
+
+            .muscle-list li {
+                list-style: none;
+                margin: 0;
+            }
+
+            .primaryMuscle {
+                margin: 0.8rem;
+            }
+
+            }
     </style>
 </head>
 
