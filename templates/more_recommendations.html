@@ -96,7 +96,8 @@
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
-            background-color: #fff; /* White background for exercise frame */
+            background-color: #fff;
+            margin-right: 1.5rem;
         }
 
         .exercise-name {
@@ -106,9 +107,8 @@
         }
 
         .images-section {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
         }
 
         .exercise-image {
@@ -141,33 +141,49 @@
             background-color: #0056b3; /* Darker shade on hover */
         }
 
-        @media only screen and (max-width: 768px) {
-            .container {
-                padding: 10px;
+        @media (max-width: 768px) {
+
+            .logo {
+                margin-right: auto;
             }
 
-            .logo img {
-                width: 66px;
-                height: 38px;
+            nav ul {
+                list-style-type: none;
+                padding: 8px 0; 
+                margin: 10px 0; 
+                padding-right: 25px;
+                display: flex;
             }
 
-            nav ul li a {
-                padding: 10px 15px;
+            nav ul li {
+                margin-right: 5px;
             }
 
-            h1 {
-                font-size: 28px;
-            }
-
-            h3 {
-                font-size: 20px;
-            }
-
-            .exercise-image {
-                width: 100%;
+            header {
+                flex-direction: column;
             }
         }
+        @media only screen and (max-width: 390px) {
+            .logo {
+                margin-right: auto;
+            }
 
+            nav ul {
+                list-style-type: none;
+                padding: 8px 0; 
+                margin: 10px 0; 
+                padding-right: 25px;
+                display: flex;
+            }
+
+            nav ul li {
+                margin-right: 5px;
+            }
+
+            header {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 

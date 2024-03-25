@@ -174,21 +174,24 @@
             background-color: #0056b3;
             color: white;
         }
-    
-    /* Responsive layout styles */
-    @media (max-width: 768px) {
+        
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+            }
 
             .logo {
-                    margin-right: auto;
-                }
-
-            .btn {
-                margin-top: 50px; /* Adjusted margin-top value */
+                margin-right: auto;
             }
 
             .logo img {
-                width: 70px;
-                height: 40px;
+                width: 80px;
+                height: auto;
+            }
+
+            nav {
+                margin: auto;
             }
 
             nav ul {
@@ -203,28 +206,199 @@
                 margin-right: 5px;
             }
 
+            nav ul li a {
+                text-decoration: none;
+                color: #007BFF;
+                padding: 16px 0; 
+                border-radius: 5px;
+                border: 1px solid #007BFF;
+                margin-right: 10px;
+                white-space: nowrap;
+                font-size: 16px;
+                flex: 1; 
+                text-align: center; 
+            }
+
+            .btn {
+                text-decoration: none;
+                background-color: #007BFF;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                border-radius: .375rem;
+                width: 100%;
+                box-sizing: border-box;
+                margin-top: 20px;
+            }
+
+            .primaryMuscle {
+                font-size: 0.5rem; /* Adjust the font size */
+                padding: 1px; 
+                margin: 1px;  
+                min-width: 70px; 
+                box-sizing: border-box;
+                border: 1px solid #007BFF;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            .primaryMuscle:hover {
+                background-color: #007BFF;
+                color: #fff;
+            }
+
+            .muscle-layout {
+                position: relative;
+                width: 100%; /* Set the width to full viewport width */
+            }
+
+
+            .muscle-picture img {
+                width: 25vh;
+                position: relative;
+            }
+
+            .muscle-list {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .muscle-list ul {
+                padding: 0;
+            }
+
+            .muscle-list li {
+                list-style: none;
+                margin: 0;
+            }
+
+            .primaryMuscle {
+                margin: 0.2rem 0.1rem;
+            }
+
+            }
+
+            @media only screen and (max-width: 390px) {
+
             header {
                 flex-direction: column;
             }
 
-
-            .muscle-list {
-                width: 40%;
+            .logo {
+                margin-right: auto;
             }
 
-            .column {
-                width: 100%;
+            .logo img {
+                width: 80px;
+                height: auto;
             }
-        }
 
-        @media (max-width: 480px) {
+            nav {
+                margin: auto;
+            }
+
+            nav ul {
+                list-style-type: none;
+                padding: 8px 0; 
+                margin: 10px 0; 
+                padding-right: 25px;
+                display: flex;
+            }
+
+            nav ul li {
+                margin-right: 5px;
+            }
+
+            nav ul li a {
+                text-decoration: none;
+                color: #007BFF;
+                padding: 16px 0; 
+                border-radius: 5px;
+                border: 1px solid #007BFF;
+                margin-right: 10px;
+                white-space: nowrap;
+                font-size: 16px;
+                flex: 1; 
+                text-align: center; 
+            }
+
             .btn {
-                margin-top: 50px; /* Adjusted margin-top value */
+                text-decoration: none;
+                background-color: #007BFF;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                border-radius: .375rem;
+                width: 100%;
+                box-sizing: border-box;
+                margin-top: 20px;
             }
+
+            .primaryMuscle {
+                font-size: 0.5rem; /* Adjust the font size */
+                padding: 1px; 
+                margin: 1px;  
+                min-width: 70px; 
+                box-sizing: border-box;
+                border: 1px solid #007BFF;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            .primaryMuscle:hover {
+                background-color: #007BFF;
+                color: #fff;
+            }
+
+            .muscle-layout {
+                position: relative;
+                width: 100%; /* Set the width to full viewport width */
+            }
+
+
+            .muscle-picture img {
+                width: 25vh;
+                position: relative;
+            }
+
             .muscle-list {
-                width: 50%;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }
-        }
+
+            .muscle-list ul {
+                padding: 0;
+            }
+
+            .muscle-list li {
+                list-style: none;
+                margin: 0;
+            }
+
+            .primaryMuscle {
+                margin: 0 0.1rem;
+            }
+
+            }
+   
     </style>
 </head>
 
