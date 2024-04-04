@@ -1,7 +1,7 @@
 
 <div align="center">
   <a href="https://github.com/emanuelebev/Ai-Fitness">
-    <img src="img/marketplace.png" alt="Logo" width="200" height="150">
+    <img src="static/white-logo.png" alt="Logo" width="200" height="150">
   </a>
 
 <h3 align="center">Fitness Exercise Recommender</h3>
